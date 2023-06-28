@@ -76,6 +76,12 @@ METHODS
 
             Default value is 'Plack::App::Register; Version: __VERSION__'.
 
+    *       "label"
+
+            Restricted label.
+
+            Default value is 'Restricted access'.
+
     *       "psgi_app"
 
             PSGI application to run instead of normal process. Intent of

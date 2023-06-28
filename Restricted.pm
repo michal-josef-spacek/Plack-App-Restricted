@@ -4,6 +4,7 @@ use base qw(Plack::Component::Tags::HTML);
 use strict;
 use warnings;
 
+use Plack::Util::Accessor qw(label);
 use Tags::HTML::Container;
 
 our $VERSION = 0.10;
@@ -30,6 +31,10 @@ sub _prepare_app {
 	# Inherite defaults.
 	$self->SUPER::_prepare_app;
 
+	if (! defined $self->label) {
+		$self->label('Restricted access');
+	}
+
 	$self->{'_tags_html_container'} = Tags::HTML::Container->new(
 		'css' => $self->css,
 		'tags' => $self->tags,
@@ -41,6 +46,7 @@ sub _prepare_app {
 sub _tags_middle {
 	my ($self, $env) = @_;
 
+	my $label = $self->label;
 	$self->{'_tags_html_container'}->process(
 		sub {
 			my $self = shift;
@@ -48,7 +54,7 @@ sub _tags_middle {
 			$self->{'tags'}->put(
 				['b', 'div'],
 				['a', 'class', 'restricted'],
-				['d', 'Restricted access'],
+				['d', $label],
 				['e', 'div'],
 			);
 
@@ -149,6 +155,12 @@ Default value is 1.
 HTML generator string.
 
 Default value is 'Plack::App::Register; Version: __VERSION__'.
+
+=item * C<label>
+
+Restricted label.
+
+Default value is 'Restricted access'.
 
 =item * C<psgi_app>
 
@@ -276,6 +288,7 @@ Returns Plack::Component object.
 =head1 DEPENDENCIES
 
 L<Plack::Component::Tags::HTML>,
+L<Plack::Util::Accessor>,
 L<Tags::HTML::Container>.
 
 =head1 REPOSITORY

@@ -26,6 +26,7 @@ no_index:
     - xt
 requires:
   Plack::Component::Tags::HTML: 0.15
+  Plack::Util::Accessor: 0
   Tags::HTML::Container: 0
   perl: 5.8.0
 resources:
