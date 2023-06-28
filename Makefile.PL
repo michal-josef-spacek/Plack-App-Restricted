@@ -18,7 +18,7 @@ name 'Plack-App-Restricted';
 perl_version 5.008;
 readme_from 'Restricted.pm';
 recursive_author_tests('xt');
-requires 'Plack::Component::Tags::HTML' => 0;
+requires 'Plack::Component::Tags::HTML' => 0.15;
 requires 'Tags::HTML::Container' => 0;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/Plack-App-Restricted/issues';
 resources 'homepage' => 'https://github.com/michal-josef-spacek/Plack-App-Restricted';

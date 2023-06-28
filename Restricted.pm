@@ -9,7 +9,7 @@ use Tags::HTML::Container;
 our $VERSION = 0.10;
 
 sub _css {
-	my $self = shift;
+	my ($self, $env) = @_;
 
 	$self->{'_tags_html_container'}->process_css;
 
@@ -27,6 +27,9 @@ sub _css {
 sub _prepare_app {
 	my $self = shift;
 
+	# Inherite defaults.
+	$self->SUPER::_prepare_app;
+
 	$self->{'_tags_html_container'} = Tags::HTML::Container->new(
 		'css' => $self->css,
 		'tags' => $self->tags,
@@ -36,7 +39,7 @@ sub _prepare_app {
 }
 
 sub _tags_middle {
-	my $self = shift;
+	my ($self, $env) = @_;
 
 	$self->{'_tags_html_container'}->process(
 		sub {
