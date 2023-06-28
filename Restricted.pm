@@ -88,6 +88,113 @@ Plack::App::Restricted - Plack application for restricted state.
 
 Constructor.
 
+=over 8
+
+=item * C<author>
+
+Author string to HTML head.
+
+Default value is undef.
+
+=item * C<content_type>
+
+Content type for output.
+
+Default value is 'text/html; charset=__ENCODING__'.
+
+=item * C<css>
+
+Instance of CSS::Struct::Output object.
+
+Default value is CSS::Struct::Output::Raw instance.
+
+=item * C<css_init>
+
+Reference to array with CSS::Struct structure.
+
+Default value is CSS initialization from Tags::HTML::Page::Begin like
+
+ * {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+ }
+
+=item * C<encoding>
+
+Set encoding for output.
+
+Default value is 'utf-8'.
+
+=item * C<favicon>
+
+Link to favicon.
+
+Default value is undef.
+
+=item * C<flag_begin>
+
+Flag that means begin of html writing via L<Tags::HTML::Page::Begin>.
+
+Default value is 1.
+
+=item * C<flag_end>
+
+Flag that means end of html writing via L<Tags::HTML::Page::End>.
+
+Default value is 1.
+
+=item * C<generator>
+
+HTML generator string.
+
+Default value is 'Plack::App::Register; Version: __VERSION__'.
+
+=item * C<psgi_app>
+
+PSGI application to run instead of normal process.
+Intent of this is change application in C<_process_actions> method.
+
+Default value is undef.
+
+=item * C<script_js>
+
+Reference to array with Javascript code strings.
+
+Default value is [].
+
+=item * C<script_js_src>
+
+Reference to array with Javascript URLs.
+
+Default value is [].
+
+=item * C<status_code>
+
+HTTP status code.
+
+Default value is 200.
+
+=item * C<tags>
+
+Instance of Tags::Output object.
+
+Default value is
+
+ Tags::Output::Raw->new(
+         'xml' => 1,
+         'no_simple' => ['script', 'textarea'],
+         'preserved' => ['pre', 'style'],
+ );
+
+=item * C<title>
+
+Page title.
+
+Default value is 'Register page'.
+
+=back
+
 Returns instance of object.
 
 =head2 C<call>
