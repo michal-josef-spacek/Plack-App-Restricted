@@ -18,6 +18,7 @@ MANIFEST			This list of files
 META.yml
 README
 Restricted.pm
+SIGNATURE
 t/Plack-App-Restricted/01-use.t
 t/Plack-App-Restricted/02-version.t
 t/Plack-App-Restricted/03-general.t
