@@ -7,7 +7,7 @@ use warnings;
 use Plack::Util::Accessor qw(label);
 use Tags::HTML::Container;
 
-our $VERSION = 0.10;
+our $VERSION = 0.01;
 
 sub _css {
 	my ($self, $env) = @_;
