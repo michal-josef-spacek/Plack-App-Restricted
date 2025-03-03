@@ -20,5 +20,6 @@ README
 Restricted.pm
 t/Plack-App-Restricted/01-use.t
 t/Plack-App-Restricted/02-version.t
+t/Plack-App-Restricted/03-general.t
 xt/Plack-App-Restricted/01-pod_coverage.t
 xt/Plack-App-Restricted/02-pod.t
